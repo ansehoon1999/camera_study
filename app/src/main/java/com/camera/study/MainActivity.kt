@@ -1,5 +1,6 @@
 package com.camera.study
 
+import android.opengl.GLSurfaceView
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,34 +14,31 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.camera.study.ui.theme.CameraStudyTheme
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var sampleGlSurfaceView: GLSurfaceView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            CameraStudyTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
-        }
+//        setContent {
+//            CameraStudyTheme {
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {}
+//            }
+//        }
+        sampleGlSurfaceView = SampleGLSurfaceView(this)
+        setContentView(sampleGlSurfaceView)
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    override fun onPause() {
+        super.onPause()
+        sampleGlSurfaceView.onPause()
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CameraStudyTheme {
-        Greeting("Android")
+    override fun onResume() {
+        super.onResume()
+        sampleGlSurfaceView.onResume()
     }
 }
