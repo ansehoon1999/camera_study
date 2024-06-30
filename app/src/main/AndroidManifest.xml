@@ -25,7 +25,7 @@
         android:theme="@style/Theme.CameraStudy"
         tools:targetApi="31">
         <activity
-            android:name=".PhotoActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:label="@string/app_name"

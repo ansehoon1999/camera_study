@@ -17,7 +17,7 @@ class CameraRenderer : GLSurfaceView.Renderer {
 
 
     private var surfaceTextureId = 0
-    private var surfaceTexture: SurfaceTexture? = null //纹理输出对象
+    private var surfaceTexture: SurfaceTexture? = null
 
 
     private var programHandle = 0

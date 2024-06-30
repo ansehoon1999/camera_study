@@ -49,6 +49,8 @@ class MainActivity : ComponentActivity() {
         Log.d("permission", permissionMap.toString())
 
         if(!permissionMap.containsValue(false)) {
+            // openCamera
+
             Toast.makeText(this@MainActivity, "권한 허가", Toast.LENGTH_SHORT).show()
         }
     }
